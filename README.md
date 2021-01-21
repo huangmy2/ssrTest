@@ -18,3 +18,8 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+# ui框架引用element ui
+# css预编译器less
+# 数据交互axios
+# 引用vuex
