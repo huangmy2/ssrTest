@@ -36,18 +36,23 @@ export default {
   ],
   
   axios: {
-      prefix: '/api/',
-      proxy: true
+    proxy: true,
+    credentials: true
   },
+  
   
   proxy: {
     '/api/': {
-       target: 'https://api.dongqiudi.com/',
-         pathRewrite: {
-           '^/api/': ''
-         }
-       }
-    },
+      // 设置不同环境地址
+      target: process.env.NODE_ENV == "production"
+      ? "https://sport-data.dongqiudi.com/"
+      : "https://beta-sport-data.dongqiudi.com/",
+      pathRewrite: {
+         '^/api/': '/',
+         changeOrigin: true
+      }
+    }
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: [/^element-ui/],
